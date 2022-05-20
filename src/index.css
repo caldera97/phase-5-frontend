@@ -40,6 +40,8 @@ code {
 .PostBorder {
   border-style: solid;
   padding: 3vh;
+  margin-bottom: 3vh;
+  border-radius: 1.5%;
 }
 
 .PostContent {
@@ -49,4 +51,26 @@ code {
 
 .FavButton {
   float: right;
+}
+
+.login-page {
+  /* display: grid;
+  grid-template-columns: 10%; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 25vh;
+  padding-block: 4vh;
+  border-style: solid;
+  border-radius: 1.5%;
+}
+
+.CommentContainer {
+  width: 50vh;
+}
+
+.FullPostBorder {
+  display: flex;
+  justify-content: space-around;
 }
