@@ -9,6 +9,8 @@ function FullPost() {
     <span>username</span>
     <button>follow</button>
     <button className="FavButton">☆</button>
+    <button>✎</button>
+    <button>🗑</button>
 </article>
     </div>
     <div className="CommentContainer">

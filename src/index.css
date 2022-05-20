@@ -74,3 +74,18 @@ code {
   display: flex;
   justify-content: space-around;
 }
+
+.FullPostContent {
+  border-style: solid;
+  border-radius: 1.5%;
+}
+
+.CommentContainer {
+  border-style: solid;
+  border-radius: 1.5%;
+}
+
+.CommentSingle {
+  border-style: solid;
+  border-radius: 1.5%;
+}

@@ -6,6 +6,8 @@ function PostCard() {
         <h1>post content</h1>
         <span>username</span>
         <button className="FavButton">☆</button>
+        <button>✎</button>
+        <button>🗑</button>
     </article>
         </div>
     </div>
