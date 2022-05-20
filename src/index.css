@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  justify-items: center;
+  padding-bottom: 8vh;
+}
+
+.PostCardContainer {
+    background: #fff;
+    box-shadow: hsla(0, 0, 0, .2) 0 4px 2px -2px;
+    font-family: "adelle-sans", sans-serif;
+    font-weight: 100;
+    margin: 48px auto;
+    width: 80vh;
+    @media screen and (min-width: 480px) {
+      width: 28rem;
+    }
+    @media screen and (min-width: 767px) {
+      width: 40rem;
+    }
+    @media screen and (min-width: 959px) {
+      width: 50rem;
+    }
+}
+
+.PostBorder {
+  border-style: solid;
+  padding: 3vh;
+}
+
+.PostContent {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.FavButton {
+  float: right;
+}
