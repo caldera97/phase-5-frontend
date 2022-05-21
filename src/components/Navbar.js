@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar"
 
 function Navbar () {
     return <div className="navbar">
-        <div>Navbar- home button</div>
+        <Link to="/">Navbar- home button</Link>
         <SearchBar />
-        <div>SignUp/Login</div>
+        <Link to="/login">SignUp/Login</Link>
     </div>
 }
 

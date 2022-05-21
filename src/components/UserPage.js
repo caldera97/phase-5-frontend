@@ -14,12 +14,6 @@ function UserPage() {
 
 export default UserPage
 
-// view your posts
-// view your comments 
-// view your favorites 
-// edit user credentials 
+//conditional rendering for the user edit form if logged in user id matches param ID
 
-//needs user post component, use post cards inside
-//needs user comments, use comment inside
-//needs favorites component, use post cards inside
-//needs form to edit user info
+

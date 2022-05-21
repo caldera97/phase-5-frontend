@@ -12,5 +12,5 @@ function PostCard() {
         </div>
     </div>
 }
-//add click to post to bring up full post page
+//add browserrouter link to go to /post/:id where the id is post id. string interpolation will help with that
 export default PostCard
