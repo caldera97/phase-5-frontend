@@ -49,7 +49,7 @@ code {
   width: fit-content;
 }
 
-.FavButton {
+.addFavButton {
   float: right;
 }
 
@@ -64,6 +64,10 @@ code {
   padding-block: 4vh;
   border-style: solid;
   border-radius: 1.5%;
+}
+
+Link {
+  text-decoration: none;
 }
 
 .CommentContainer {

@@ -1,12 +1,12 @@
 import PostCard from "./PostCard"
-function HomePostContainer() {
+function HomePostContainer({AllPosts}) {
+
+    const renderPosts = AllPosts.map((post) => (<div key={post.id} className="PostCard">
+        <PostCard content={post.content} id={post.id} img={post.img} tags={post.tags} user_id={post.user_id} username={post.user.username}/>
+    </div>));
+
     return <div className="PostCardContainer">
-        <div className="PostCard"><PostCard /></div>
-        <div className="PostCard"><PostCard /></div>
-        <div className="PostCard"><PostCard /></div>
-        <div className="PostCard"><PostCard /></div>
-        <div className="PostCard"><PostCard /></div>
-        <div className="PostCard"><PostCard /></div>
+        {renderPosts}
     </div>
 }
 
