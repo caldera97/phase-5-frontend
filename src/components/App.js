@@ -11,9 +11,8 @@ function App() {
   //useEffect to fetch all posts then set to state
   const [AllPosts, setAllPosts] = useState([]);
   const [LoggedInUser, setLoggedInUser] = useState({
-    about: null,
-    id: null}
-  )
+    id: null,
+  });
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -22,7 +21,7 @@ function App() {
       }
     });
   }, []);
-  
+
   useEffect(() => {
     fetch("http://localhost:3000/posts")
       .then((res) => res.json())
@@ -31,18 +30,16 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar LoggedInUser={LoggedInUser} setLoggedInUser={setLoggedInUser}/>
+      <Navbar LoggedInUser={LoggedInUser} setLoggedInUser={setLoggedInUser} />
       <Routes>
         <Route path="/" element={<HomePostContainer AllPosts={AllPosts} />} />
-        <Route path="/login" element={<LoginSignup setLoggedInUser={setLoggedInUser}/>} />
+        <Route
+          path="/login"
+          element={<LoginSignup setLoggedInUser={setLoggedInUser} />}
+        />
         <Route path="/post/:postId" element={<FullPost />} />
         <Route path="/user/:userId" element={<UserPage />} />
         <Route path="/postForm/:EditOrNew" element={<PostForm />} />
-        {/* <HomePostContainer /> */}
-        {/* <LoginSignup /> */}
-        {/* <FullPost /> */}
-        {/* <UserPage /> */}
-        {/* <PostForm /> */}
       </Routes>
     </div>
   );

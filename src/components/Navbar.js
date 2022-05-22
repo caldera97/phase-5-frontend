@@ -5,8 +5,7 @@ function Navbar({ LoggedInUser, setLoggedInUser }) {
   function logout() {
     fetch("/logout", { method: "DELETE" }).then(
       setLoggedInUser({
-        about: null,
-        id: null,
+        id: null
       })
     );
   }
