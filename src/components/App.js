@@ -32,12 +32,12 @@ function App() {
     <div className="App">
       <Navbar LoggedInUser={LoggedInUser} setLoggedInUser={setLoggedInUser} />
       <Routes>
-        <Route path="/" element={<HomePostContainer AllPosts={AllPosts} />} />
+        <Route path="/" element={<HomePostContainer AllPosts={AllPosts} LoggedInUser={LoggedInUser}/>} />
         <Route
           path="/login"
           element={<LoginSignup setLoggedInUser={setLoggedInUser} />}
         />
-        <Route path="/post/:postId" element={<FullPost />} />
+        <Route path="/post/:postId" element={<FullPost LoggedInUser={LoggedInUser}/>} />
         <Route path="/user/:userId" element={<UserPage />} />
         <Route path="/postForm/:EditOrNew" element={<PostForm />} />
       </Routes>
