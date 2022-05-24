@@ -1,34 +1,38 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function PostCard({ content, id, img, tags, user_id, username, LoggedInUser }) {
+  let navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(e);
     e.target.className === "addFavButton"
-      ? addFav()
+      ? addFav(e)
       : e.target.className === "editButton"
-      ? editPost()
-      : delPost();
-    //use e.target.className to check what function to use, whether to edit, delete, or favorite the post
+      ? editPost(e)
+      : delPost(e);
   };
 
   function addFav(e) {
-    e = null;
+    console.log("fav")
   }
 
   function editPost(e) {
-    e = null;
+    navigate(`/postForm/edit/${id}`)
   }
 
   function delPost(e) {
-    e = null;
+    fetch(`http://localhost:3000/posts/${id}`, {
+      method: "DELETE"      
+    })
+    .then(window.location.reload())
   }
 
   return (
     <Link to={`/post/${id}`} style={{ textDecoration: 'none' }}>
       <div className="PostBorder">
         <div className="PostContent">
-          <img className="thumb" src={img} alt="post"></img>
+          {img ? <img className="thumb" src={img} alt="post"></img> : null}
+          {/* <img className="thumb" src={img} alt="post"></img> */}
           <article>
             <h1>{content}</h1>
             <span>{username}</span>

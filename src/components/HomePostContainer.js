@@ -1,5 +1,10 @@
 import PostCard from "./PostCard";
-function HomePostContainer({ AllPosts, LoggedInUser }) {
+import { useState, useEffect } from "react";
+function HomePostContainer({ AllPosts, LoggedInUser, toggle }) {
+  const [postToggle, setPostToggle] = useState(1)
+
+  useEffect(() => postToggle === toggle ? undefined : (window.location.reload()), [])
+
   const renderPosts = AllPosts.map((post) => (
     <div key={post.id} className="PostCard">
       <PostCard

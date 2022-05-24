@@ -37,6 +37,10 @@ code {
     }
 }
 
+.thumb {
+  max-width: 60vh;
+}
+
 .PostBorder {
   border-style: solid;
   padding: 3vh;
@@ -70,10 +74,11 @@ Link {
   text-decoration: none;
 }
 
-/* .CommentContainer {
-  width: 60vh;
-  
-} */
+.postButton{
+  position: fixed;
+  right: 5%;
+  bottom: 10%;
+}
 
 .FullPostBorder {
   display: flex;
