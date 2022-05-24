@@ -35,7 +35,7 @@ function FullPost({ LoggedInUser }) {
         </article>
       </div>
       <div>
-        <Comments />
+        {post.comments ? <Comments comments={post.comments} LoggedInUser={LoggedInUser}/> : null}
       </div>
     </div>
   );
