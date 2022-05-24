@@ -20,7 +20,7 @@ function PostForm({ AllPosts, LoggedInUser, toggle, setToggle }) {
       EditOrNew === "edit"
         ? setPost(AllPosts.find((posting) => posting.id === parseInt(postId)))
         : undefined,
-    []
+    [EditOrNew, postId, AllPosts]
   );
 
   function handleSubmit(e) {
@@ -40,6 +40,7 @@ function PostForm({ AllPosts, LoggedInUser, toggle, setToggle }) {
         tags: tags || post.tags,
       }),
     })
+      .then(() => setToggle(toggle => toggle + 1))
       .then(alert("updated"))
       .then(navigate(`/post/${postId}`));
   }
@@ -57,7 +58,6 @@ function PostForm({ AllPosts, LoggedInUser, toggle, setToggle }) {
         user_id: LoggedInUser.id,
       }),
     })
-    .then(r => r.json())
     .then(() => setToggle(toggle => toggle + 1))
     .then(() => alert("posted!"))
     // .then(navigate(`/`))

@@ -12,6 +12,10 @@ function FullPost({ LoggedInUser }) {
       .then((data) => setPost(data));
   }, [postId]);
 
+  function refresh() {
+    window.location.reload()
+  }
+
   return (
     <div className="FullPostBorder">
       <div className="FullPostContent">
@@ -35,7 +39,7 @@ function FullPost({ LoggedInUser }) {
         </article>
       </div>
       <div>
-        {post.comments ? <Comments comments={post.comments} LoggedInUser={LoggedInUser}/> : null}
+        {post.comments ? <Comments refresh={refresh}comments={post.comments} LoggedInUser={LoggedInUser} postId={postId}/> : null}
       </div>
     </div>
   );
