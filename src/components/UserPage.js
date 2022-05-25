@@ -15,8 +15,8 @@ function UserPage({LoggedInUser}) {
 
     return <div className="UserPage">
         <UserPosts posts={user.posts} LoggedInUser={LoggedInUser}/>
-        {/* <UserComments />
-        <UserFavorites />
+        <UserComments comments={user.comments} LoggedInUser={LoggedInUser}/>
+        {/* <UserFavorites />
         <UserEditForm /> */}
     </div>
 }
