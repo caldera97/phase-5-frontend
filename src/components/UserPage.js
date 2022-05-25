@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import UserComments from "./UserComments";
-import UserEditForm from "./UserEditForm";
+// import UserEditForm from "./UserEditForm";
 import UserFavorites from "./UserFavorites";
 import UserPosts from "./UserPosts";
 
@@ -16,8 +16,8 @@ function UserPage({LoggedInUser}) {
     return <div className="UserPage">
         <UserPosts posts={user.posts} LoggedInUser={LoggedInUser}/>
         <UserComments comments={user.comments} LoggedInUser={LoggedInUser}/>
-        {/* <UserFavorites />
-        <UserEditForm /> */}
+        <UserFavorites favorites={user.favorites} LoggedInUser={LoggedInUser}/>
+        {/* {LoggedInUser.id === parseInt(userId) ? <UserEditForm /> : null} */}
     </div>
 }
 
