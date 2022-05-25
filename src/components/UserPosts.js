@@ -1,7 +1,7 @@
 import PostCard from "./PostCard";
 function UserPosts({ posts, LoggedInUser }) {
 
-  const renderPosts = posts.map((post) => (
+  const renderPosts = posts?.map((post) => (
     <div key={post.id} className="PostCard">
       <PostCard
         LoggedInUser={LoggedInUser}
