@@ -1,16 +1,24 @@
 import { useState } from "react";
-function Comment({ id, content, username, user_id, LoggedInUser, deleteComment, editComment }) {
-    const [editedComment, setEditedComment] = useState("")
-    const [showEdit, setShowEdit] = useState(false)
+function Comment({
+  id,
+  content,
+  username,
+  user_id,
+  LoggedInUser,
+  deleteComment,
+  editComment,
+}) {
+  const [editedComment, setEditedComment] = useState("");
+  const [showEdit, setShowEdit] = useState(false);
 
-    const handleEdit = (e) => {
-        e.preventDefault()
-        const commentobj = {
-            content: editedComment,
-            id: id
-        }
-        editComment(commentobj)
-    }
+  const handleEdit = (e) => {
+    e.preventDefault();
+    const commentobj = {
+      content: editedComment,
+      id: id,
+    };
+    editComment(commentobj);
+  };
 
   return (
     <div className="CommentSingle">
@@ -23,11 +31,15 @@ function Comment({ id, content, username, user_id, LoggedInUser, deleteComment, 
         </div>
       ) : null}
 
-      {showEdit ? (      <form onSubmit={(e) => handleEdit(e)}>
-          <input defaultValue={content} onChange={(e) => setEditedComment(e.target.value)}/>
+      {showEdit ? (
+        <form onSubmit={(e) => handleEdit(e)}>
+          <input
+            defaultValue={content}
+            onChange={(e) => setEditedComment(e.target.value)}
+          />
           <button type="submit">edit</button>
-      </form>) : null }
-
+        </form>
+      ) : null}
     </div>
   );
 }

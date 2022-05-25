@@ -16,27 +16,24 @@ function Comments({ comments, LoggedInUser, postId, refresh }) {
         user_id: LoggedInUser.id,
         post_id: postId,
       }),
-    })
-    .then(() => refresh())
-  }
+    }).then(() => refresh());
+  };
 
   const deleteComment = (id) => {
     fetch(`http://localhost:3000/comments/${id}`, {
-        method: "DELETE"      
-      })
-      .then(() => refresh())
-  }
+      method: "DELETE",
+    }).then(() => refresh());
+  };
 
   const editComment = (commentobj) => {
     fetch(`http://localhost:3000/comments/${commentobj.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(commentobj),
-      })
-      .then(() => refresh())
-  }
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(commentobj),
+    }).then(() => refresh());
+  };
 
   const renderComments = comments.map((comment) => (
     <div key={comment.id}>
@@ -53,7 +50,7 @@ function Comments({ comments, LoggedInUser, postId, refresh }) {
   ));
   return (
     <div className="CommentContainer">
-      <form onSubmit={e => postComment(e)}>
+      <form onSubmit={(e) => postComment(e)}>
         <p>Leave a Comment</p>
         <input
           type="text"

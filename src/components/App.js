@@ -56,7 +56,7 @@ function App() {
           path="/post/:postId"
           element={<FullPost LoggedInUser={LoggedInUser} />}
         />
-        <Route path="/user/:userId" element={<UserPage />} />
+        <Route path="/user/:userId" element={<UserPage LoggedInUser={LoggedInUser}/>} />
         <Route
           path="/postForm/:EditOrNew/:postId"
           element={<PostForm AllPosts={AllPosts} LoggedInUser={LoggedInUser} setToggle={setToggle} toggle={toggle}/>}

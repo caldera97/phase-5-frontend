@@ -12,12 +12,12 @@ function Navbar({ LoggedInUser, setLoggedInUser }) {
 
   return (
     <div className="navbar">
-      <Link to="/">Navbar- home button</Link>
+      <Link to="/">Home</Link>
       <SearchBar />
       {LoggedInUser.id ? (
         <>
           <button onClick={logout}>Logout</button>
-          Profile
+          <Link to={`/user/${LoggedInUser.id}`}>Profile</Link>
         </>
       ) : (
         <Link to="/login">SignUp/Login</Link>
