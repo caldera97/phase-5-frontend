@@ -22,10 +22,9 @@ function FullPost({ LoggedInUser }) {
         {post.img ? (
           <img className="Fullthumb" src={post.img} alt="post"></img>
         ) : null}
-
         <article>
           <h1>{post.content}</h1>
-          {post.user ? <span>{post.user.username}</span> : null}
+          {post.user ? <a href={`/user/${post.user.id}`}>{post.user.username}</a> : null}
           <button>follow</button>
           <button className="FavButton">☆</button>
           {post.user ? (
