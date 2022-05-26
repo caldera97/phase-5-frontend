@@ -1,5 +1,8 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function SearchBar() {
-
+    let navigate = useNavigate();
+    const [searchTerm, setSearchTerm] = useState("")
     return <form>
     <label htmlFor="header-search">
         <span className="visually-hidden">Search blog posts</span>
@@ -9,8 +12,9 @@ function SearchBar() {
         id="header-search"
         placeholder="Search blog posts"
         name="s" 
+        onChange={(e) => setSearchTerm(e.target.value)}
     />
-    <button type="submit">Search</button>
+    <button onClick={() => navigate(`/search/${searchTerm}`)}>Search</button>
 </form>
 }
 
