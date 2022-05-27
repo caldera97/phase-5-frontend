@@ -11,7 +11,7 @@ function Navbar({ LoggedInUser, setLoggedInUser }) {
   }
 
   return (
-    <div className="navbar">
+    <nav className="navbar">
       <Link to="/">Home</Link>
       <SearchBar />
       {LoggedInUser.id ? (
@@ -22,7 +22,7 @@ function Navbar({ LoggedInUser, setLoggedInUser }) {
       ) : (
         <Link to="/login">SignUp/Login</Link>
       )}
-    </div>
+    </nav>
   );
 }
 
