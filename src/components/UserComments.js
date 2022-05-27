@@ -1,6 +1,7 @@
 import Comment from "./Comment";
+import UserPageNav from "./UserPageNav";
 
-function UserComments({ comments, LoggedInUser }) {
+function UserComments({ comments, LoggedInUser, user }) {
   const deleteComment = (id) => {
     fetch(`http://localhost:3000/comments/${id}`, {
       method: "DELETE",
@@ -32,10 +33,13 @@ function UserComments({ comments, LoggedInUser }) {
   ));
 
   return (
-    <div className="CommentContainer">
-      user comments
-      {renderComments}
-    </div>
+    <>
+      <UserPageNav user={user} />
+      <div className="CommentContainer">
+        user comments
+        {renderComments}
+      </div>
+    </>
   );
 }
 

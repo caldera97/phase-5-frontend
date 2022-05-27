@@ -9,16 +9,20 @@ import UserPage from "./UserPage";
 import PostForm from "./PostForm";
 import SearchPostContainer from "./SearchPostContainer";
 
+import UserComments from "./UserComments";
+import UserFavorites from "./UserFavorites";
+import UserPosts from "./UserPosts";
+
 function App() {
-  //useEffect to fetch all posts then set to state
   let navigate = useNavigate();
   const [AllPosts, setAllPosts] = useState([]);
-  const [toggle, setToggle] = useState(1)
+  const [toggle, setToggle] = useState(1);
   const [LoggedInUser, setLoggedInUser] = useState({
     id: null,
   });
 
-  
+  const [user, setUser] = useState("");
+
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
@@ -26,18 +30,22 @@ function App() {
       }
     });
   }, []);
-  
+
   useEffect(() => {
     fetch("http://localhost:3000/posts")
-    .then((res) => res.json())
-    .then((posts) => setAllPosts(posts));
+      .then((res) => res.json())
+      .then((posts) => setAllPosts(posts));
   }, []);
-  
-  // useEffect(toggle ? setToggle(false) : undefined, [])
+
   return (
     <div className="App">
       <Navbar LoggedInUser={LoggedInUser} setLoggedInUser={setLoggedInUser} />
-      <button onClick={() => navigate("/postForm/new/00")} className={"postButton"}>✚</button>
+      <button
+        onClick={() => navigate("/postForm/new/00")}
+        className={"postButton"}
+      >
+        ✚
+      </button>
       <Routes>
         <Route
           path="/"
@@ -53,18 +61,58 @@ function App() {
           path="/login"
           element={<LoginSignup setLoggedInUser={setLoggedInUser} />}
         />
-        <Route 
-        path="/search/:searchTerm"
-        element={<SearchPostContainer LoggedInUser={LoggedInUser}/>}
+        <Route
+          path="/search/:searchTerm"
+          element={<SearchPostContainer LoggedInUser={LoggedInUser} />}
         />
         <Route
           path="/post/:postId"
-          element={<FullPost LoggedInUser={LoggedInUser}/>}
+          element={<FullPost LoggedInUser={LoggedInUser} />}
         />
-        <Route path="/user/:userId" element={<UserPage LoggedInUser={LoggedInUser}/>} />
+        <Route
+          path="/user/:userId/*"
+          element={
+            <UserPage
+              LoggedInUser={LoggedInUser}
+              setUser={setUser}
+              user={user}
+            />
+          }
+        />
         <Route
           path="/postForm/:EditOrNew/:postId"
-          element={<PostForm AllPosts={AllPosts} LoggedInUser={LoggedInUser} setToggle={setToggle} toggle={toggle}/>}
+          element={
+            <PostForm
+              AllPosts={AllPosts}
+              LoggedInUser={LoggedInUser}
+              setToggle={setToggle}
+              toggle={toggle}
+            />
+          }
+        />
+        <Route
+          path="/user/:userId/posts"
+          element={<UserPosts posts={user.posts} LoggedInUser={LoggedInUser} user={user}/>}
+        />
+        <Route
+          path="/user/:userId/comments"
+          element={
+            <UserComments
+              comments={user.comments}
+              LoggedInUser={LoggedInUser}
+              user={user}
+            />
+          }
+        />
+        <Route
+          path="/user/:userId/favorites"
+          element={
+            <UserFavorites
+              favorites={user.favorites}
+              LoggedInUser={LoggedInUser}
+              user={user}
+            />
+          }
         />
       </Routes>
     </div>

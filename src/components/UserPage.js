@@ -1,26 +1,23 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import UserComments from "./UserComments";
-import UserFavorites from "./UserFavorites";
-import UserPosts from "./UserPosts";
+import { useEffect } from "react";
+import UserPageNav from "./UserPageNav";
 
-function UserPage({LoggedInUser}) {
-    const { userId } = useParams();
-    const [user, setUser] = useState("")
+function UserPage({ setUser, user }) {
+  const { userId } = useParams();
 
-    useEffect(() => {fetch(`/users/${parseInt(userId)}`)
-    .then(r => r.json())
-    .then((fetchedUser) => setUser(fetchedUser))},[userId])
+  useEffect(() => {
+    fetch(`/users/${parseInt(userId)}`)
+      .then((r) => r.json())
+      .then((fetchedUser) => setUser(fetchedUser));
+  }, [userId, setUser]);
 
-    return <div className="UserPage">
-        <UserPosts posts={user.posts} LoggedInUser={LoggedInUser}/>
-        <UserComments comments={user.comments} LoggedInUser={LoggedInUser}/>
-        <UserFavorites favorites={user.favorites} LoggedInUser={LoggedInUser}/>
+  return (
+    <div className="UserPage">
+      <UserPageNav user={user} />
     </div>
+  );
 }
 
-export default UserPage
+export default UserPage;
 
 //conditional rendering for the user edit form if logged in user id matches param ID if i add it
-
-

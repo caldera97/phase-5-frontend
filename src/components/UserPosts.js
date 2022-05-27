@@ -1,6 +1,6 @@
 import PostCard from "./PostCard";
-function UserPosts({ posts, LoggedInUser }) {
-
+import UserPageNav from "./UserPageNav";
+function UserPosts({ posts, LoggedInUser, user }) {
   const renderPosts = posts?.map((post) => (
     <div key={post.id} className="PostCard">
       <PostCard
@@ -17,6 +17,7 @@ function UserPosts({ posts, LoggedInUser }) {
 
   return (
     <div className="PostCardContainer">
+      <UserPageNav user={user} />
       userPosts
       {renderPosts}
     </div>

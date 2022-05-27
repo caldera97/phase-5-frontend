@@ -1,6 +1,7 @@
 import PostCard from "./PostCard";
+import UserPageNav from "./UserPageNav";
 
-function UserFavorites({ LoggedInUser, favorites }) {
+function UserFavorites({ LoggedInUser, favorites, user }) {
   const renderPosts = favorites?.map((post) => (
     <div key={post.post.id} className="PostCard">
       <PostCard
@@ -19,6 +20,7 @@ function UserFavorites({ LoggedInUser, favorites }) {
 
   return (
     <div className="PostCardContainer">
+      <UserPageNav user={user} />
       user favorites
       {renderPosts}
     </div>
