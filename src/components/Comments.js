@@ -49,17 +49,19 @@ function Comments({ comments, LoggedInUser, postId, refresh }) {
     </div>
   ));
   return (
-    <div className="CommentContainer">
-      <form onSubmit={(e) => postComment(e)}>
-        <p>Leave a Comment</p>
-        <input
-          type="text"
-          required
-          placeholder="comment"
-          onChange={(e) => setCommentContent(e.target.value)}
-        />
-        <button type="submit">comment</button>
-      </form>
+    <div className={comments.length > 0 || LoggedInUser.id ? "CommentContainer" : null}>
+      {LoggedInUser.id ? (
+        <form onSubmit={(e) => postComment(e)}>
+          <p>Leave a Comment</p>
+          <input
+            type="text"
+            required
+            placeholder="comment"
+            onChange={(e) => setCommentContent(e.target.value)}
+          />
+          <button type="submit">comment</button>
+        </form>
+      ) : null}
       {renderComments}
     </div>
   );

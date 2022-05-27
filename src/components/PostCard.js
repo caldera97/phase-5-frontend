@@ -5,16 +5,10 @@ function PostCard({ content, id, img, tags, user_id, username, LoggedInUser }) {
   let navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
-    e.target.className === "addFavButton"
-      ? addFav(e)
-      : e.target.className === "editButton"
+    e.target.className === "editButton"
       ? editPost(e)
       : delPost(e);
   };
-
-  function addFav(e) {
-    console.log("fav")
-  }
 
   function editPost(e) {
     navigate(`/postForm/edit/${id}`)
@@ -36,12 +30,6 @@ function PostCard({ content, id, img, tags, user_id, username, LoggedInUser }) {
           <article>
             <h1>{content}</h1>
             <span>{username}</span>
-            {LoggedInUser.id ? (
-              <button className="addFavButton" onClick={handleClick}>
-                ☆
-              </button>
-            ) : null}
-
             {LoggedInUser.id === user_id ? (
               <>
                 <button className="editButton" onClick={handleClick}>

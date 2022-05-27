@@ -93,6 +93,10 @@ Link {
   border-radius: 1.5%;
 }
 
+.Fullthumb {
+  padding: 4%;
+}
+
 .CommentContainer {
   border-style: solid;
   border-radius: 1.5%;
