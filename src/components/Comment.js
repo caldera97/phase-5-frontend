@@ -22,7 +22,7 @@ function Comment({
 
   return (
     <div className="CommentSingle">
-      <div>{username}</div>
+      <a href={`/user/${user_id}`}>{username}</a>
       <div>{content}</div>
       {user_id === LoggedInUser.id ? (
         <div>
