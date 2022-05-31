@@ -8,6 +8,7 @@ import FullPost from "./FullPost";
 import UserPage from "./UserPage";
 import PostForm from "./PostForm";
 import SearchPostContainer from "./SearchPostContainer";
+import Following from "./Following";
 
 import UserComments from "./UserComments";
 import UserFavorites from "./UserFavorites";
@@ -112,6 +113,12 @@ function App() {
               LoggedInUser={LoggedInUser}
               user={user}
             />
+          } />
+          <Route
+          path="/following"
+          element={
+            <Following LoggedInUser={LoggedInUser}/>
+            
           }
         />
       </Routes>

@@ -18,6 +18,7 @@ function Navbar({ LoggedInUser, setLoggedInUser }) {
         <>
           <button onClick={logout}>Logout</button>
           <Link to={`/user/${LoggedInUser.id}`}>Profile</Link>
+          <Link to={'/following'}>Following</Link>
         </>
       ) : (
         <Link to="/login">SignUp/Login</Link>

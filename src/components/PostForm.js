@@ -60,7 +60,6 @@ function PostForm({ AllPosts, LoggedInUser, toggle, setToggle }) {
     })
     .then(() => setToggle(toggle => toggle + 1))
     .then(() => alert("posted!"))
-    // .then(navigate(`/`))
   }
 
   return (

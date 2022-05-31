@@ -94,7 +94,9 @@ Link {
 }
 
 .Fullthumb {
+  box-sizing: border-box;
   padding: 4%;
+  width: 100%;
 }
 
 .CommentContainer {
