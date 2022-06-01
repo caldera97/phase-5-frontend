@@ -35,7 +35,7 @@ function UserComments({ comments, LoggedInUser, user }) {
   return (
     <>
       <UserPageNav user={user} />
-      <div className="CommentContainer">
+      <div className="CommentContainer" style={{ textDecoration: 'none', color: 'white' }}>
         user comments
         {renderComments}
       </div>

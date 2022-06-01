@@ -12,16 +12,16 @@ function Navbar({ LoggedInUser, setLoggedInUser }) {
 
   return (
     <nav className="navbar">
-      <Link to="/">Home</Link>
+      <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>FlatAffinity</Link>
       <SearchBar />
       {LoggedInUser.id ? (
         <>
           <button onClick={logout}>Logout</button>
-          <Link to={`/user/${LoggedInUser.id}`}>Profile</Link>
-          <Link to={'/following'}>Following</Link>
+          <Link to={`/user/${LoggedInUser.id}`} style={{ textDecoration: 'none', color: 'white' }}>Profile</Link>
+          {/* <Link to={'/following'}>Following</Link> */}
         </>
       ) : (
-        <Link to="/login">SignUp/Login</Link>
+        <Link to="/login" style={{ textDecoration: 'none', color: 'white' }}>SignUp/Login</Link>
       )}
     </nav>
   );

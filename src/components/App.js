@@ -8,7 +8,7 @@ import FullPost from "./FullPost";
 import UserPage from "./UserPage";
 import PostForm from "./PostForm";
 import SearchPostContainer from "./SearchPostContainer";
-import Following from "./Following";
+// import Following from "./Following";
 
 import UserComments from "./UserComments";
 import UserFavorites from "./UserFavorites";
@@ -41,12 +41,14 @@ function App() {
   return (
     <div className="App">
       <Navbar LoggedInUser={LoggedInUser} setLoggedInUser={setLoggedInUser} />
-      <button
-        onClick={() => navigate("/postForm/new/00")}
-        className={"postButton"}
-      >
-        ✚
-      </button>
+      {LoggedInUser.id ? (
+        <button
+          onClick={() => navigate("/postForm/new/00")}
+          className={"postButton"}
+        >
+          ✚
+        </button>
+      ) : null}
       <Routes>
         <Route
           path="/"
@@ -93,7 +95,13 @@ function App() {
         />
         <Route
           path="/user/:userId/posts"
-          element={<UserPosts posts={user.posts} LoggedInUser={LoggedInUser} user={user}/>}
+          element={
+            <UserPosts
+              posts={user.posts}
+              LoggedInUser={LoggedInUser}
+              user={user}
+            />
+          }
         />
         <Route
           path="/user/:userId/comments"
@@ -113,14 +121,14 @@ function App() {
               LoggedInUser={LoggedInUser}
               user={user}
             />
-          } />
-          <Route
+          }
+        />
+        {/* <Route
           path="/following"
           element={
             <Following LoggedInUser={LoggedInUser}/>
             
-          }
-        />
+          } />*/}
       </Routes>
     </div>
   );

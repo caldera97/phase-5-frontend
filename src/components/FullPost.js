@@ -28,7 +28,6 @@ function FullPost({ LoggedInUser }) {
   }
 
   function addFav(e) {
-    console.log("fav");
     fetch("http://localhost:3000/favorites", {
       method: "POST",
       headers: {
@@ -50,6 +49,26 @@ function FullPost({ LoggedInUser }) {
       method: "DELETE",
     }).then(window.location.reload());
   }
+
+  // function handleFollow(e) {
+  //   console.log(LoggedInUser)
+  //   fetch("http://localhost:3000/follows", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       follower_id: LoggedInUser.id,
+  //       following_id: post.user.id,
+  //     }),
+  //   }).then(() => refresh());
+  // }
+
+  //following[0].id
+  // let followButton = null;
+  // if (LoggedInUser.following.forEach(e => {
+  //   e.includes(post.user.id)
+  // }) === true) {
 
   let favButton = null;
 
@@ -74,7 +93,7 @@ function FullPost({ LoggedInUser }) {
           {post.user ? (
             <a href={`/user/${post.user.id}`}>{post.user.username}</a>
           ) : null}
-          <button>follow</button>
+          {/* <button onClick={handleFollow}>follow</button> */}
           {LoggedInUser.id ? favButton : null}
 
           {post.user ? (

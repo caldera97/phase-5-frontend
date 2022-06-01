@@ -5,7 +5,7 @@ function SearchBar() {
     const [searchTerm, setSearchTerm] = useState("")
     return <form>
     <label htmlFor="header-search">
-        <span className="visually-hidden">Search blog posts</span>
+        <span className="visually-hidden"></span>
     </label>
     <input
         type="text"
@@ -14,7 +14,7 @@ function SearchBar() {
         name="s" 
         onChange={(e) => setSearchTerm(e.target.value)}
     />
-    <button onClick={() => navigate(`/search/${searchTerm}`)}>Search</button>
+    <button onClick={() => navigate(`/search/${searchTerm}`)}>🔍</button>
 </form>
 }
 

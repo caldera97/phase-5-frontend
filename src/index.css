@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(28, 11, 25);
 }
 
 code {
@@ -17,6 +18,11 @@ code {
   grid-template-columns: repeat(3, 33%);
   justify-items: center;
   padding-bottom: 8vh;
+  background-color: rgb(53, 30, 41);
+}
+
+.navbar:visited {
+  text-decoration: none;
 }
 
 .PostCardContainer {
@@ -26,15 +32,8 @@ code {
     font-weight: 100;
     margin: 48px auto;
     width: 80vh;
-    @media screen and (min-width: 480px) {
-      width: 28rem;
-    }
-    @media screen and (min-width: 767px) {
-      width: 40rem;
-    }
-    @media screen and (min-width: 959px) {
-      width: 50rem;
-    }
+    display: flex;
+    flex-direction: column;
 }
 
 .thumb {
@@ -44,8 +43,11 @@ code {
 .PostBorder {
   border-style: solid;
   padding: 3vh;
+  padding-block-end: 3vh;
   margin-bottom: 3vh;
   border-radius: 1.5%;
+  background-clip: content-box;
+  box-shadow: 0 0 0 3vh rgb(28, 11, 25);
 }
 
 .PostContent {
@@ -89,6 +91,7 @@ Link {
 }
 
 .FullPostContent {
+  background: #fff;
   border-style: solid;
   border-radius: 1.5%;
 }
@@ -104,6 +107,7 @@ Link {
   border-radius: 1.5%;
   margin-left: 5%;
   width: 60vh;
+  background-color: #fff;
 }
 
 .CommentSingle {
