@@ -16,11 +16,13 @@ function UserPosts({ posts, LoggedInUser, user }) {
   ));
 
   return (
-    <div className="PostCardContainer">
+    <>
       <UserPageNav user={user} />
-      userPosts
-      {renderPosts}
-    </div>
+      <div className="PostCardContainer">
+        userPosts
+        {renderPosts}
+      </div>
+    </>
   );
 }
 export default UserPosts;

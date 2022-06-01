@@ -12,7 +12,7 @@ function Navbar({ LoggedInUser, setLoggedInUser }) {
 
   return (
     <nav className="navbar">
-      <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>FlatAffinity</Link>
+      <Link to="/" style={{ textDecoration: 'none', color: 'white' , fontFamily: "Brush Script MT, Brush Script Std, cursive", fontSize: "1.5em"}}>FlatAffinity</Link>
       <SearchBar />
       {LoggedInUser.id ? (
         <>

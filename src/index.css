@@ -110,10 +110,28 @@ Link {
   background-color: #fff;
 }
 
+.CommentContainerUser {
+  border-style: solid;
+  border-radius: 1.5%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60vh;
+  background-color: #fff;
+}
+
 .CommentSingle {
   border-style: solid;
   border-radius: 1.5%;
   border-bottom: 0px;
   border-left: 0px;
   border-right: 0px;
+}
+
+.UserPageNav {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  justify-items: center;
+  padding-bottom: 5vh;
+  background-color: rgb(53, 30, 41);
+  font-size: 1.8em;
 }

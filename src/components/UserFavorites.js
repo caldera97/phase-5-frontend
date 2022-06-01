@@ -19,11 +19,13 @@ function UserFavorites({ LoggedInUser, favorites, user }) {
   //username cant be displayed like this, fix it later
 
   return (
-    <div className="PostCardContainer">
+    <>
       <UserPageNav user={user} />
-      user favorites
-      {renderPosts}
-    </div>
+      <div className="PostCardContainer">
+        user favorites
+        {renderPosts}
+      </div>
+    </>
   );
 }
 
